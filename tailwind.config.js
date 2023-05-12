@@ -1,5 +1,6 @@
 const plugin = require("tailwindcss/plugin");
 const colors = require("tailwindcss/colors");
+const defaultTheme = require('tailwindcss/defaultTheme')
 
 module.exports = {
   purge: {
@@ -17,82 +18,78 @@ module.exports = {
     },
   },
   theme: {
-    colors: {
-      ...colors,
-    },
     extend: {
-      minHeight: {
-        "screen-75": "75vh",
+      fontFamily: {
+        sans: ['cairo', ...defaultTheme.fontFamily.sans],
       },
-      fontSize: {
-        "55": "55rem",
-      },
-      opacity: {
-        "80": ".8",
-      },
-      zIndex: {
-        "2": 2,
-        "3": 3,
-      },
-      inset: {
-        "-100": "-100%",
-        "-225-px": "-225px",
-        "-160-px": "-160px",
-        "-150-px": "-150px",
-        "-94-px": "-94px",
-        "-50-px": "-50px",
-        "-29-px": "-29px",
-        "-20-px": "-20px",
-        "25-px": "25px",
-        "40-px": "40px",
-        "95-px": "95px",
-        "145-px": "145px",
-        "195-px": "195px",
-        "210-px": "210px",
-        "260-px": "260px",
-      },
-      height: {
-        "95-px": "95px",
-        "70-px": "70px",
-        "350-px": "350px",
-        "500-px": "500px",
-        "600-px": "600px",
-      },
-      maxHeight: {
-        "860-px": "860px",
-      },
-      maxWidth: {
-        "100-px": "100px",
-        "120-px": "120px",
-        "150-px": "150px",
-        "180-px": "180px",
-        "200-px": "200px",
-        "210-px": "210px",
-        "580-px": "580px",
-      },
-      minWidth: {
-        "140-px": "140px",
-        "48": "12rem",
-      },
-      backgroundSize: {
-        full: "100%",
+      colors: {
+        light: 'var(--light)',
+        dark: 'var(--dark)',
+        darker: 'var(--darker)',
+        primary: {
+          DEFAULT: 'var(--color-primary)',
+          50: 'var(--color-primary-50)',
+          100: 'var(--color-primary-100)',
+          light: 'var(--color-primary-light)',
+          lighter: 'var(--color-primary-lighter)',
+          dark: 'var(--color-primary-dark)',
+          darker: 'var(--color-primary-darker)',
+        },
+        secondary: {
+          DEFAULT: colors.fuchsia[600],
+          50: colors.fuchsia[50],
+          100: colors.fuchsia[100],
+          light: colors.fuchsia[500],
+          lighter: colors.fuchsia[400],
+          dark: colors.fuchsia[700],
+          darker: colors.fuchsia[800],
+        },
+        success: {
+          DEFAULT: colors.green[600],
+          50: colors.green[50],
+          100: colors.green[100],
+          light: colors.green[500],
+          lighter: colors.green[400],
+          dark: colors.green[700],
+          darker: colors.green[800],
+        },
+        warning: {
+          DEFAULT: colors.orange[600],
+          50: colors.orange[50],
+          100: colors.orange[100],
+          light: colors.orange[500],
+          lighter: colors.orange[400],
+          dark: colors.orange[700],
+          darker: colors.orange[800],
+        },
+        danger: {
+          DEFAULT: colors.red[600],
+          50: colors.red[50],
+          100: colors.red[100],
+          light: colors.red[500],
+          lighter: colors.red[400],
+          dark: colors.red[700],
+          darker: colors.red[800],
+        },
+        info: {
+          DEFAULT: colors.cyan[600],
+          50: colors.cyan[50],
+          100: colors.cyan[100],
+          light: colors.cyan[500],
+          lighter: colors.cyan[400],
+          dark: colors.cyan[700],
+          darker: colors.cyan[800],
+        },
       },
     },
   },
-  variants: [
-    "responsive",
-    "group-hover",
-    "focus-within",
-    "first",
-    "last",
-    "odd",
-    "even",
-    "hover",
-    "focus",
-    "active",
-    "visited",
-    "disabled",
-  ],
+  variants: {
+    extend: {
+      backgroundColor: ['checked', 'disabled'],
+      opacity: ['dark'],
+      overflow: ['hover'],
+    },
+  },
   plugins: [
     require("@tailwindcss/forms"),
     plugin(function ({ addComponents, theme }) {

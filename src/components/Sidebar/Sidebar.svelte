@@ -2,11 +2,12 @@
   import { link } from "svelte-routing";
 
   // states
-  let navBar = 'dashboard';
+  let navBar = "dashboard";
   let isToggle = true;
+  let isOpenSettingPanel = false;
 
   // functions
-  const toggleAccordion = value => {
+  const toggleAccordion = (value) => {
     if (navBar === value) {
       isToggle = !isToggle;
     } else {
@@ -32,8 +33,8 @@
         <a
           use:link
           href="/admin/dashboard"
-          class="flex items-center p-2 text-gray-500 transition-colors rounded-md dark:text-light hover:bg-primary-100 dark:hover:bg-primary"
-          on:click={() => toggleAccordion('dashboard')}
+          class="bg-primary-100 dark:bg-primary flex items-center p-2 text-gray-500 transition-colors rounded-md dark:text-light hover:bg-primary-100 dark:hover:bg-primary"
+          on:click={() => toggleAccordion("dashboard")}
         >
           <span>
             <svg
@@ -53,7 +54,7 @@
           </span>
           <span class="ml-2 text-sm"> Dashboards </span>
           <span class="ml-auto">
-            {#if navBar === 'dashboard' && isToggle}
+            {#if navBar === "dashboard" && isToggle}
               <i class="fas fa-angle-up mr-2 text-sm" />
             {:else}
               <i class="fas fa-angle-down mr-2 text-sm" />
@@ -66,21 +67,24 @@
             <!-- active & hover classes 'text-gray-700 dark:text-light' -->
             <!-- inActive classes 'text-gray-400 dark:text-gray-400' -->
             <a
-              href="#"
+              use:link
+              href="/admin/dashboard/menuitem"
               role="menuitem"
               class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:text-light dark:hover:text-light hover:text-gray-700"
             >
               Default
             </a>
             <a
-              href="#"
+              use:link
+              href="/admin/dashboard/menuitem"
               role="menuitem"
               class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
             >
               Project Mangement (soon)
             </a>
             <a
-              href="#"
+              use:link
+              href="/admin/dashboard/menuitem"
               role="menuitem"
               class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
             >
@@ -95,7 +99,9 @@
         <a
           use:link
           href="/admin/component"
-          class="flex items-center p-2 text-gray-500 transition-colors rounded-md dark:text-light hover:bg-primary-100 dark:hover:bg-primary"
+          class="{navBar === 'component'
+            ? 'bg-primary-100 dark:bg-primary'
+            : ''} flex items-center p-2 text-gray-500 transition-colors rounded-md dark:text-light hover:bg-primary-100 dark:hover:bg-primary"
           on:click={() => toggleAccordion("component")}
         >
           <span>
@@ -129,49 +135,56 @@
             <!-- active & hover classes 'text-gray-700 dark:text-light' -->
             <!-- inActive classes 'text-gray-400 dark:text-gray-400' -->
             <a
-              href="#"
+              use:link
+              href="/admin/dashboard/menuitem"
               role="menuitem"
               class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-700"
             >
               Alerts (soon)
             </a>
             <a
-              href="#"
+              use:link
+              href="/admin/dashboard/menuitem"
               role="menuitem"
               class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-700"
             >
               Buttons (soon)
             </a>
             <a
-              href="#"
+              use:link
+              href="/admin/dashboard/menuitem"
               role="menuitem"
               class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
             >
               Cards (soon)
             </a>
             <a
-              href="#"
+              use:link
+              href="/admin/dashboard/menuitem"
               role="menuitem"
               class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
             >
               Dropdowns (soon)
             </a>
             <a
-              href="#"
+              use:link
+              href="/admin/dashboard/menuitem"
               role="menuitem"
               class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
             >
               Forms (soon)
             </a>
             <a
-              href="#"
+              use:link
+              href="/admin/dashboard/menuitem"
               role="menuitem"
               class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
             >
               Lists (soon)
             </a>
             <a
-              href="#"
+              use:link
+              href="/admin/dashboard/menuitem"
               role="menuitem"
               class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
             >
@@ -186,7 +199,9 @@
         <a
           use:link
           href="/admin/pages"
-          class="flex items-center p-2 text-gray-500 transition-colors rounded-md dark:text-light hover:bg-primary-100 dark:hover:bg-primary"
+          class="{navBar === 'pages'
+            ? 'bg-primary-100 dark:bg-primary'
+            : ''} flex items-center p-2 text-gray-500 transition-colors rounded-md dark:text-light hover:bg-primary-100 dark:hover:bg-primary"
           on:click={() => toggleAccordion("pages")}
         >
           <span>
@@ -220,49 +235,56 @@
             <!-- active & hover classes 'text-gray-700 dark:text-light' -->
             <!-- inActive classes 'text-gray-400 dark:text-gray-400' -->
             <a
-              href="pages/blank.html"
+              use:link
+              href="pages/blank"
               role="menuitem"
               class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-700"
             >
               Blank
             </a>
             <a
-              href="pages/404.html"
+              use:link
+              href="pages/404"
               role="menuitem"
               class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-700"
             >
               404
             </a>
             <a
-              href="pages/500.html"
+              use:link
+              href="pages/500"
               role="menuitem"
               class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-700"
             >
               500
             </a>
             <a
-              href="#"
+              use:link
+              href="pages/404"
               role="menuitem"
               class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-700"
             >
               Profile (soon)
             </a>
             <a
-              href="#"
+              use:link
+              href="/admin/dashboard/menuitem"
               role="menuitem"
               class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
             >
               Pricing (soon)
             </a>
             <a
-              href="#"
+              use:link
+              href="/admin/dashboard/menuitem"
               role="menuitem"
               class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
             >
               Kanban (soon)
             </a>
             <a
-              href="#"
+              use:link
+              href="/admin/dashboard/menuitem"
               role="menuitem"
               class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
             >
@@ -277,7 +299,9 @@
         <a
           use:link
           href="/admin/authentication"
-          class="flex items-center p-2 text-gray-500 transition-colors rounded-md dark:text-light hover:bg-primary-100 dark:hover:bg-primary"
+          class="{navBar === 'authentication'
+            ? 'bg-primary-100 dark:bg-primary'
+            : ''} flex items-center p-2 text-gray-500 transition-colors rounded-md dark:text-light hover:bg-primary-100 dark:hover:bg-primary"
           on:click={() => toggleAccordion("authentication")}
         >
           <span>
@@ -311,28 +335,32 @@
             <!-- active & hover classes 'text-gray-700 dark:text-light' -->
             <!-- inActive classes 'text-gray-400 dark:text-gray-400' -->
             <a
-              href="auth/register.html"
+              use:link
+              href="auth/register"
               role="menuitem"
               class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
             >
               Register
             </a>
             <a
-              href="auth/login.html"
+              use:link
+              href="auth/login"
               role="menuitem"
               class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
             >
               Login
             </a>
             <a
-              href="auth/forgot-password.html"
+              use:link
+              href="auth/forgot-password"
               role="menuitem"
               class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
             >
               Forgot Password
             </a>
             <a
-              href="auth/reset-password.html"
+              use:link
+              href="auth/reset-password"
               role="menuitem"
               class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
             >
@@ -347,7 +375,9 @@
         <a
           use:link
           href="/admin/layouts"
-          class="flex items-center p-2 text-gray-500 transition-colors rounded-md dark:text-light hover:bg-primary-100 dark:hover:bg-primary"
+          class="{navBar === 'layouts'
+            ? 'bg-primary-100 dark:bg-primary'
+            : ''} flex items-center p-2 text-gray-500 transition-colors rounded-md dark:text-light hover:bg-primary-100 dark:hover:bg-primary"
           on:click={() => toggleAccordion("layouts")}
         >
           <span>
@@ -381,21 +411,24 @@
             <!-- active & hover classes 'text-gray-700 dark:text-light' -->
             <!-- inActive classes 'text-gray-400 dark:text-gray-400' -->
             <a
-              href="layouts/two-columns-sidebar.html"
+              use:link
+              href="layouts/two-columns-sidebar"
               role="menuitem"
               class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-700"
             >
               Two Columns Sidebar
             </a>
             <a
-              href="layouts/mini-plus-one-columns-sidebar.html"
+              use:link
+              href="layouts/mini-plus-one-columns-sidebar"
               role="menuitem"
               class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-700"
             >
               Mini + One Columns Sidebar
             </a>
             <a
-              href="layouts/mini-column-sidebar.html"
+              use:link
+              href="layouts/mini-column-sidebar"
               role="menuitem"
               class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-700"
             >
@@ -405,5 +438,31 @@
         {/if}
       </div>
     </nav>
+    <!-- Sidebar footer -->
+    <div class="flex-shrink-0 px-2 py-4 space-y-2">
+      <button
+        on:click={() => (isOpenSettingPanel = !isOpenSettingPanel)}
+        type="button"
+        class="flex items-center justify-center w-full px-4 py-2 text-sm text-white rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring focus:ring-primary-dark focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark"
+      >
+        <span aria-hidden="true">
+          <svg
+            class="w-4 h-4 mr-2"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"
+            />
+          </svg>
+        </span>
+        <span>Customize</span>
+      </button>
+    </div>
   </div>
 </aside>
