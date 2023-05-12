@@ -28,14 +28,17 @@
       children: [
         {
           name: "Default",
+          number: 700,
           path: "/dashboard",
         },
         {
-          name: "Project(Management (soon))",
+          name: "Project Management (soon)",
+          number: 400,
           path: "/project-management",
         },
         {
           name: "E-Commerce (soon)",
+          number: 400,
           path: "/e-commerce",
         },
       ],
@@ -64,30 +67,37 @@
       children: [
         {
           name: "Alerts (soon)",
+          number: 400, 
           path: "/alerts",
         },
         {
           name: "Buttons (soon)",
+          number: 400, 
           path: "/buttons",
         },
         {
           name: "Cards (soon)",
+          number: 400, 
           path: "/cards",
         },
         {
           name: "Dropdowns (soon)",
+          number: 400, 
           path: "/dropdowns",
         },
         {
           name: "Forms (soon)",
+          number: 400, 
           path: "/forms",
         },
         {
           name: "Lists (soon)",
+          number: 400, 
           path: "/lists",
         },
         {
           name: "Modals (soon)",
+          number: 400, 
           path: "/modals",
         },
       ],
@@ -116,30 +126,37 @@
       children: [
         {
           name: "Blank",
+          number: 400, 
           path: "/blank",
         },
         {
           name: "404",
+          number: 400, 
           path: "/404",
         },
         {
           name: "500",
+          number: 400, 
           path: "/500",
         },
         {
           name: "Profile (soon)",
+          number: 400, 
           path: "/profile",
         },
         {
           name: "Pricing (soon)",
+          number: 400, 
           path: "/pricing",
         },
         {
           name: "Kanban (soon)",
+          number: 400, 
           path: "/kanban",
         },
         {
           name: "Feed (soon)",
+          number: 400, 
           path: "/feed",
         },
       ],
@@ -168,18 +185,22 @@
       children: [
         {
           name: "Register",
+          number: 400, 
           path: "/register",
         },
         {
           name: "Login",
+          number: 400, 
           path: "/login",
         },
         {
           name: "Forgot Password",
+          number: 400, 
           path: "/forgot-password",
         },
         {
           name: "Reset Password",
+          number: 400, 
           path: "/reset-password",
         },
       ],
@@ -208,14 +229,17 @@
       children: [
         {
           name: "Two Columns Sidebar",
+          number: 400, 
           path: "/two-columns-sidebar",
         },
         {
           name: "Mini + One Column Sidebar",
+          number: 400, 
           path: "/mini-one-column-sidebar",
         },
         {
           name: "Mini Column Sidebar",
+          number: 400, 
           path: "/mini-column-sidebar",
         },
       ],

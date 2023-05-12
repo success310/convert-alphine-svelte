@@ -45,7 +45,7 @@
       <a
         use:link
         href="{child.path}"
-        class="block p-2 text-sm text-gray-700 transition-colors rounded-md dark:text-light dark:hover:text-light hover:text-gray-700"
+        class="block p-2 text-sm text-gray-{child.number} transition-colors rounded-md dark:text-light dark:hover:text-light hover:text-gray-700"
       >
         {child.name}
       </a>
