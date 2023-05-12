@@ -4,6 +4,7 @@
   // components for this layout
   import Sidebar from "components/Sidebar/Sidebar.svelte";
   import HeaderAdmin from "components/Headers/HeaderAdmin.svelte";
+  import Content from '../views/admin/Content.svelte';
   import FooterAdmin from "components/Footers/FooterAdmin.svelte";
 
   // pages for this layout
@@ -41,7 +42,8 @@
         </div>
 
         <!-- Content -->
-        <div class="mt-2">
+        <Content />
+        <!-- <div class="mt-2">
           <Router url="admin">
             <Route path="dashboard" component={Dashboard} />
             <Route path="components" component={Components} />
@@ -49,7 +51,7 @@
             <Route path="authentication" component={Authentication} />
             <Route path="layouts" component={Layouts} />
           </Router>
-        </div>
+        </div> -->
       </main>
       
       <!-- Main footer -->
