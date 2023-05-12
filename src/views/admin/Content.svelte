@@ -1,21 +1,10 @@
 <script>
-  // import '../../scripts';
+  import BarChart from '../../components/Charts/BarChart.svelte';
+  import DoughnutChart from '../../components/Charts/DoughnutChart.svelte';
+  import ActiveUsersChart from '../../components/Charts/ActiveUsersChart.svelte';
+  import LineChart from '../../components/Charts/LineChart.svelte';
 
-  let isOn = false;
-
-  const updateBarChart = on => {
-    const data = {
-      data: [82, 41, 90, 68, 57, 28, 34, 24, 91, 72, 90, 79],
-      backgroundColor: "rgb(207, 250, 254)",
-    };
-    if (on) {
-      barChart.data.datasets.push(data);
-      barChart.update();
-    } else {
-      barChart.data.datasets.splice(1);
-      barChart.update();
-    }
-  };
+  let isOn;
 </script>
 
 <div class="mt-2">
@@ -175,73 +164,10 @@
     class="grid p-4 space-y-8 lg:gap-8 lg:space-y-0 lg:grid-cols-3"
   >
     <!-- Bar chart card -->
-    <div class="col-span-2 bg-white rounded-md dark:bg-darker">
-      <!-- Card header -->
-      <div
-        class="flex items-center justify-between p-4 border-b dark:border-primary"
-      >
-        <h4 class="text-lg font-semibold text-gray-500 dark:text-light">
-          Bar Chart
-        </h4>
-        <div class="flex items-center space-x-2">
-          <span class="text-sm text-gray-500 dark:text-light">Last year</span>
-          <button
-            class="relative focus:outline-none"
-            on:click={() => {
-              isOn = !isOn;
-              updateBarChart(isOn);
-            }}
-          >
-            <div
-              class="w-12 h-6 transition rounded-full outline-none bg-primary-100 dark:bg-primary-darker"
-            />
-            <div
-              class="{isOn
-                ? 'translate-x-6 bg-primary-light dark:bg-primary'
-                : 'translate-x-0  bg-white dark:bg-primary-100'} absolute top-0 left-0 inline-flex items-center justify-center w-6 h-6 transition-all duration-200 ease-in-out transform scale-110 rounded-full shadow-sm"
-            />
-          </button>
-        </div>
-      </div>
-      <!-- Chart -->
-      <div class="relative p-4 h-72">
-        <canvas id="barChart" />
-      </div>
-    </div>
+    <BarChart />
 
     <!-- Doughnut chart card -->
-    <div class="bg-white rounded-md dark:bg-darker">
-      <!-- Card header -->
-      <div
-        class="flex items-center justify-between p-4 border-b dark:border-primary"
-      >
-        <h4 class="text-lg font-semibold text-gray-500 dark:text-light">
-          Doughnut Chart
-        </h4>
-        <div class="flex items-center">
-          <button
-            class="relative focus:outline-none"
-            on:click={() => {
-              isOn = !isOn;
-              updateDoughnutChart(isOn);
-            }}
-          >
-            <div
-              class="w-12 h-6 transition rounded-full outline-none bg-primary-100 dark:bg-primary-darker"
-            />
-            <div
-              class="{isOn
-                ? 'translate-x-6 bg-primary-light dark:bg-primary'
-                : 'translate-x-0  bg-white dark:bg-primary-100'} absolute top-0 left-0 inline-flex items-center justify-center w-6 h-6 transition-all duration-200 ease-in-out transform scale-110 rounded-full shadow-sm"
-            />
-          </button>
-        </div>
-      </div>
-      <!-- Chart -->
-      <div class="relative p-4 h-72">
-        <canvas id="doughnutChart" />
-      </div>
-    </div>
+    <DoughnutChart />
   </div>
 
   <!-- Two grid columns -->
@@ -249,61 +175,9 @@
     class="grid p-4 space-y-8 lg:gap-8 lg:space-y-0 lg:grid-cols-3"
   >
     <!-- Active users chart -->
-    <div class="col-span-1 bg-white rounded-md dark:bg-darker">
-      <!-- Card header -->
-      <div class="p-4 border-b dark:border-primary">
-        <h4 class="text-lg font-semibold text-gray-500 dark:text-light">
-          Active users right now
-        </h4>
-      </div>
-      <p class="p-4">
-        <span
-          class="text-2xl font-medium text-gray-500 dark:text-light"
-          id="usersCount">0</span
-        >
-        <span class="text-sm font-medium text-gray-500 dark:text-primary"
-          >Users</span
-        >
-      </p>
-      <!-- Chart -->
-      <div class="relative p-4">
-        <canvas id="activeUsersChart" />
-      </div>
-    </div>
-
+    <ActiveUsersChart />
+    
     <!-- Line chart card -->
-    <div class="col-span-2 bg-white rounded-md dark:bg-darker">
-      <!-- Card header -->
-      <div
-        class="flex items-center justify-between p-4 border-b dark:border-primary"
-      >
-        <h4 class="text-lg font-semibold text-gray-500 dark:text-light">
-          Line Chart
-        </h4>
-        <div class="flex items-center">
-          <button
-            class="relative focus:outline-none"
-            x-cloak
-            on:click={() => {
-              isOn = !isOn;
-              updateLineChart();
-            }}
-          >
-            <div
-              class="w-12 h-6 transition rounded-full outline-none bg-primary-100 dark:bg-primary-darker"
-            />
-            <div
-              class="{isOn
-                ? 'translate-x-6 bg-primary-light dark:bg-primary'
-                : 'translate-x-0  bg-white dark:bg-primary-100'} absolute top-0 left-0 inline-flex items-center justify-center w-6 h-6 transition-all duration-200 ease-in-out transform scale-110 rounded-full shadow-sm"
-            />
-          </button>
-        </div>
-      </div>
-      <!-- Chart -->
-      <div class="relative p-4 h-72">
-        <canvas id="lineChart" />
-      </div>
-    </div>
+    <LineChart />
   </div>
 </div>
