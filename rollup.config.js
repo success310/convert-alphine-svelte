@@ -1,4 +1,5 @@
 import svelte from "rollup-plugin-svelte";
+import sveltePreprocess from 'svelte-preprocess';
 import resolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
 import livereload from "rollup-plugin-livereload";
@@ -158,6 +159,7 @@ export default {
       dev: !production,
       // we'll extract any component CSS out into
       // a separate file - better for performance
+      preprocess: sveltePreprocess(),
       css: (css) => {
         css.write("bundle.css");
       },

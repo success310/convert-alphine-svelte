@@ -1,5 +1,6 @@
 <script>
   import SidebarItem from "./SidebarItem.svelte";
+  // import { Drawer } from '@skeletonlabs/skeleton';
 
   const navBars = [
     // dashboard
@@ -220,8 +221,8 @@
       ],
     },
   ];
-
-  // import SettingDrawer from '../Drawers/Settings.svelte';
+  
+  let isOpenSettingsPanel = false;
 </script>
 
 <!-- Sidebar -->
@@ -238,11 +239,10 @@
       {/each}
       
     </nav>
-    
     <!-- Sidebar footer -->
     <div class="flex-shrink-0 px-2 py-4 space-y-2">
       <button
-        
+        on:click={() => isOpenSettingsPanel = !isOpenSettingsPanel}
         type="button"
         class="flex items-center justify-center w-full px-4 py-2 text-sm text-white rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring focus:ring-primary-dark focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark"
       >
@@ -267,3 +267,7 @@
     </div>
   </div>
 </aside>
+
+<!-- <Drawer isOpen={isOpenSettingsPanel}>
+  <div>Setting Drawer</div>
+</Drawer> -->

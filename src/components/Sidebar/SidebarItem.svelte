@@ -8,8 +8,8 @@
   let isOpen = false;
   let isDefault = navBar.name === "Dashboards";
   const toggle = () => {
-    isOpen = !isOpen;
     isDefault = false;
+    isOpen = !isOpen;
   };
 </script>
 
