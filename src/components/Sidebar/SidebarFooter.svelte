@@ -30,4 +30,4 @@
   </button>
 </div>
 
-<SettingsDrawer isOpen={isHiddenSettingsPanel} />
+<!-- <SettingsDrawer isOpen={isHiddenSettingsPanel} /> -->
