@@ -3,8 +3,31 @@
   let isMobileSubMenuOpen = false;
   let isDark = false;
   let open = false;
-  
-  const profileAvatar = '../assets/img/avatar.jpg';
+
+  const toggleTheme = color => {
+    const root = document.documentElement;
+    root.style.setProperty("--color-primary", `var(--color-${color})`);
+    root.style.setProperty("--color-primary-50", `var(--color-${color}-50)`);
+    root.style.setProperty("--color-primary-100", `var(--color-${color}-100)`);
+    root.style.setProperty(
+      "--color-primary-light",
+      `var(--color-${color}-light)`
+    );
+    root.style.setProperty(
+      "--color-primary-lighter",
+      `var(--color-${color}-lighter)`
+    );
+    root.style.setProperty(
+      "--color-primary-dark",
+      `var(--color-${color}-dark)`
+    );
+    root.style.setProperty(
+      "--color-primary-darker",
+      `var(--color-${color}-darker)`
+    );
+  };
+
+  const profileAvatar = "../assets/img/avatar.jpg";
 </script>
 
 <header class="relative bg-white dark:bg-darker">
@@ -53,7 +76,11 @@
       <button
         aria-hidden="true"
         class="relative focus:outline-none"
-        on:click={() => (isDark = !isDark)}
+        on:click={() => {
+          isDark =!isDark;
+          document.getElementsByTagName('body')[0].classList.toggle('dark');
+          toggleTheme(isDark ? 'blue' : 'blue');
+        }}
       >
         <div
           class="w-12 h-6 transition rounded-full outline-none bg-primary-100 dark:bg-primary-lighter"
@@ -171,50 +198,59 @@
 
       <div class="relative">
         <button
-          on:click="{() => { open = !open; if(open){ userMenu.focus(); } } }"
+          on:click={() => {
+            open = !open;
+            if (open) {
+              userMenu.focus();
+            }
+          }}
           type="button"
           aria-haspopup="true"
-          aria-expanded="{open ? 'true' : 'false'}"
+          aria-expanded={open ? "true" : "false"}
           class="transition-opacity duration-200 rounded-full dark:opacity-75 dark:hover:opacity-100 focus:outline-none focus:ring dark:focus:opacity-100"
         >
           <span class="sr-only">User menu</span>
-          <img class="w-10 h-10 rounded-full" src="{profileAvatar}" alt="Ahmed Kamel" />
+          <img
+            class="w-10 h-10 rounded-full"
+            src={profileAvatar}
+            alt="Ahmed Kamel"
+          />
         </button>
 
         <!-- User dropdown menu -->
         {#if open}
-        <div
-          bind:this={userMenu}
-          on:click.away="{() => open = false}"
-          on:keydown.escape="{() => open = false}"
-          class="transform transition-all absolute right-0 w-48 py-1 bg-white rounded-md shadow-lg top-12 ring-1 ring-black ring-opacity-5 dark:bg-dark focus:outline-none"
-          tabindex="-1"
-          role="menu"
-          aria-orientation="vertical"
-          aria-label="User menu"
-        >
-          <a
-            href="#profile"
-            role="menuitem"
-            class="block px-4 py-2 text-sm text-gray-700 transition-colors hover:bg-gray-100 dark:text-light dark:hover:bg-primary"
+          <div
+            bind:this={userMenu}
+            on:click.away={() => (open = false)}
+            on:keydown.escape={() => (open = false)}
+            class="transform transition-all absolute right-0 w-48 py-1 bg-white rounded-md shadow-lg top-12 ring-1 ring-black ring-opacity-5 dark:bg-dark focus:outline-none"
+            tabindex="-1"
+            role="menu"
+            aria-orientation="vertical"
+            aria-label="User menu"
           >
-            Your Profile
-          </a>
-          <a
-            href="#menuitem"
-            role="menuitem"
-            class="block px-4 py-2 text-sm text-gray-700 transition-colors hover:bg-gray-100 dark:text-light dark:hover:bg-primary"
-          >
-            Settings
-          </a>
-          <a
-            href="#logout"
-            role="menuitem"
-            class="block px-4 py-2 text-sm text-gray-700 transition-colors hover:bg-gray-100 dark:text-light dark:hover:bg-primary"
-          >
-            Logout
-          </a>
-        </div>
+            <a
+              href="#profile"
+              role="menuitem"
+              class="block px-4 py-2 text-sm text-gray-700 transition-colors hover:bg-gray-100 dark:text-light dark:hover:bg-primary"
+            >
+              Your Profile
+            </a>
+            <a
+              href="#menuitem"
+              role="menuitem"
+              class="block px-4 py-2 text-sm text-gray-700 transition-colors hover:bg-gray-100 dark:text-light dark:hover:bg-primary"
+            >
+              Settings
+            </a>
+            <a
+              href="#logout"
+              role="menuitem"
+              class="block px-4 py-2 text-sm text-gray-700 transition-colors hover:bg-gray-100 dark:text-light dark:hover:bg-primary"
+            >
+              Logout
+            </a>
+          </div>
         {/if}
       </div>
     </nav>
