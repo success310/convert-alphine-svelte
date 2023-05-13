@@ -1,7 +1,7 @@
 <script>
   let userMenu;
   let isMobileSubMenuOpen = false;
-  let isDark = false;
+  let isDark = true;
   let open = false;
 
   const toggleTheme = color => {
