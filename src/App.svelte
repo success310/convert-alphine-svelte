@@ -8,8 +8,7 @@
   export let url = "";
 </script>
 
-<Router url="{url}">
+<Router {url}>
   <!-- admin layout -->
-  <Route path="/*admin" component="{Admin}" />
-
+  <Route path="/*admin" component={Admin} />
 </Router>
