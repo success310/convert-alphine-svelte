@@ -1,7 +1,7 @@
-  import { writable } from "svelte/store";
-
+import { writable } from'svelte/store';
+  
   // actions
-  export const toggleTheme = writable((color) => {
+  export const toggleTheme = color => {
     const root = document.documentElement;
     root.style.setProperty("--color-primary", `var(--color-${color})`);
     root.style.setProperty("--color-primary-50", `var(--color-${color}-50)`);
@@ -22,7 +22,23 @@
       "--color-primary-darker",
       `var(--color-${color}-darker)`
     );
-  });
+  };
+
+  export let toggleDarkMode = color => {
+    switch (color) {
+      case 'dark':
+        document.getElementsByTagName('body')[0].classList.add('dark');
+        break;
+      case 'light':
+        document.getElementsByTagName('body')[0].classList.remove('dark');
+        break;
+      default:
+        document.getElementsByTagName('body')[0].classList.toggle('dark');
+        break;
+    }
+};
 
   // states
-  export const themeColor = writable('blue');
+  export let themeColor = 'blue';
+
+  export let isSettingsPanelOpen = writable(false);

@@ -1,5 +1,6 @@
 <script>
-  let userMenu;
+  import { toggleDarkMode } from "../../store/common";
+
   let isMobileSubMenuOpen = false;
   let isDark = true;
   let open = false;
@@ -55,7 +56,7 @@
         class="relative focus:outline-none"
         on:click={() => {
           isDark =!isDark;
-          document.getElementsByTagName('body')[0].classList.toggle('dark');
+          toggleDarkMode();
         }}
       >
         <div
@@ -176,9 +177,6 @@
         <button
           on:click={() => {
             open = !open;
-            if (open) {
-              userMenu.focus();
-            }
           }}
           type="button"
           aria-haspopup="true"
@@ -196,7 +194,6 @@
         <!-- User dropdown menu -->
         {#if open}
           <div
-            bind:this={userMenu}
             on:click.away={() => (open = false)}
             on:keydown.escape={() => (open = false)}
             class="transform transition-all absolute right-0 w-48 py-1 bg-white rounded-md shadow-lg top-12 ring-1 ring-black ring-opacity-5 dark:bg-dark focus:outline-none"

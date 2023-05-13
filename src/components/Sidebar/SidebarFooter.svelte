@@ -1,12 +1,10 @@
 <script>
-  import SettingsDrawer from '../Drawers/SettingsDrawer.svelte';
-
-  let isHiddenSettingsPanel = true;
+  import { isSettingsPanelOpen } from '../../store/common.js';
 </script>
 
 <div class="flex-shrink-0 px-2 py-4 space-y-2">
   <button
-    on:click={() => isHiddenSettingsPanel = !isHiddenSettingsPanel}
+    on:click={() => isSettingsPanelOpen.set(!$isSettingsPanelOpen)}
     type="button"
     class="flex items-center justify-center w-full px-4 py-2 text-sm text-white rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring focus:ring-primary-dark focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark"
   >
@@ -29,5 +27,3 @@
     <span>Customize</span>
   </button>
 </div>
-
-<!-- <SettingsDrawer isOpen={isHiddenSettingsPanel} /> -->

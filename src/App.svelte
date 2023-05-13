@@ -1,5 +1,6 @@
 <!-- App.svelte -->
 <script>
+  import SettingsDrawer from "./components/Drawers/SettingsDrawer.svelte";
   import { Router, Route } from "svelte-routing";
 
   // Admin Layout
@@ -8,7 +9,8 @@
   export let url = "";
 </script>
 
-<Router {url}>
+<SettingsDrawer />
+<Router url="{url}">
   <!-- admin layout -->
-  <Route path="/*admin" component={Admin} />
+  <Route path="/*admin" component="{Admin}" />
 </Router>
