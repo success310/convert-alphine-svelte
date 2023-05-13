@@ -42,3 +42,5 @@ import { writable } from'svelte/store';
   export let themeColor = 'blue';
 
   export let isSettingsPanelOpen = writable(false);
+  export let isNotificationPanelOpen = writable(false);
+  export let isSearchPanelOpen = writable(false);

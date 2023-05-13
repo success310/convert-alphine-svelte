@@ -1,9 +1,15 @@
 <script>
+  import UserDropdown from "../Dropdowns/UserDropdown.svelte";
+  import {
+    isSettingsPanelOpen,
+    isNotificationPanelOpen,
+    isSearchPanelOpen,
+  } from "../../store/common.js";
   import { toggleDarkMode } from "../../store/common";
 
   let isMobileSubMenuOpen = false;
   let isDark = true;
-  let open = false;
+  let isOpenUserDropdown = false;
 
   const profileAvatar = "../assets/img/avatar.jpg";
 </script>
@@ -55,7 +61,7 @@
         aria-hidden="true"
         class="relative focus:outline-none"
         on:click={() => {
-          isDark =!isDark;
+          isDark = !isDark;
           toggleDarkMode();
         }}
       >
@@ -103,6 +109,7 @@
 
       <!-- Notification button -->
       <button
+        on:click={() => isNotificationPanelOpen.set(!$isNotificationPanelOpen)}
         class="p-2 transition-colors duration-200 rounded-full text-primary-lighter bg-primary-50 hover:text-primary hover:bg-primary-100 dark:hover:text-light dark:hover:bg-primary-dark dark:bg-dark focus:outline-none focus:bg-primary-100 dark:focus:bg-primary-dark focus:ring-primary-darker"
       >
         <span class="sr-only">Open Notification panel</span>
@@ -125,6 +132,7 @@
 
       <!-- Search button -->
       <button
+        on:click={() => isSearchPanelOpen.set(!$isSearchPanelOpen)}
         class="p-2 transition-colors duration-200 rounded-full text-primary-lighter bg-primary-50 hover:text-primary hover:bg-primary-100 dark:hover:text-light dark:hover:bg-primary-dark dark:bg-dark focus:outline-none focus:bg-primary-100 dark:focus:bg-primary-dark focus:ring-primary-darker"
       >
         <span class="sr-only">Open search panel</span>
@@ -147,6 +155,7 @@
 
       <!-- Settings button -->
       <button
+        on:click={() => isSettingsPanelOpen.set(!$isSettingsPanelOpen)}
         class="p-2 transition-colors duration-200 rounded-full text-primary-lighter bg-primary-50 hover:text-primary hover:bg-primary-100 dark:hover:text-light dark:hover:bg-primary-dark dark:bg-dark focus:outline-none focus:bg-primary-100 dark:focus:bg-primary-dark focus:ring-primary-darker"
       >
         <span class="sr-only">Open settings panel</span>
@@ -176,11 +185,11 @@
       <div class="relative">
         <button
           on:click={() => {
-            open = !open;
+            isOpenUserDropdown = !isOpenUserDropdown;
           }}
           type="button"
           aria-haspopup="true"
-          aria-expanded={open ? "true" : "false"}
+          aria-expanded={isOpenUserDropdown ? "true" : "false"}
           class="transition-opacity duration-200 rounded-full dark:opacity-75 dark:hover:opacity-100 focus:outline-none focus:ring dark:focus:opacity-100"
         >
           <span class="sr-only">User menu</span>
@@ -192,38 +201,8 @@
         </button>
 
         <!-- User dropdown menu -->
-        {#if open}
-          <div
-            on:click.away={() => (open = false)}
-            on:keydown.escape={() => (open = false)}
-            class="transform transition-all absolute right-0 w-48 py-1 bg-white rounded-md shadow-lg top-12 ring-1 ring-black ring-opacity-5 dark:bg-dark focus:outline-none"
-            tabindex="-1"
-            role="menu"
-            aria-orientation="vertical"
-            aria-label="User menu"
-          >
-            <a
-              href="#profile"
-              role="menuitem"
-              class="block px-4 py-2 text-sm text-gray-700 transition-colors hover:bg-gray-100 dark:text-light dark:hover:bg-primary"
-            >
-              Your Profile
-            </a>
-            <a
-              href="#menuitem"
-              role="menuitem"
-              class="block px-4 py-2 text-sm text-gray-700 transition-colors hover:bg-gray-100 dark:text-light dark:hover:bg-primary"
-            >
-              Settings
-            </a>
-            <a
-              href="#logout"
-              role="menuitem"
-              class="block px-4 py-2 text-sm text-gray-700 transition-colors hover:bg-gray-100 dark:text-light dark:hover:bg-primary"
-            >
-              Logout
-            </a>
-          </div>
+        {#if isOpenUserDropdown}
+          <UserDropdown {isOpenUserDropdown} />
         {/if}
       </div>
     </nav>
