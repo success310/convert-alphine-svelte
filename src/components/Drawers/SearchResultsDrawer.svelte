@@ -94,7 +94,7 @@
   <!-- Panel content (Search result) -->
   <div class="flex-1 px-4 pb-4 space-y-4 overflow-y-hidden h hover:overflow-y-auto">
     <h3 class="py-2 text-sm font-semibold text-gray-600 dark:text-light">History</h3>
-    <a href="#" class="flex space-x-4">
+    <a href="#aaa" class="flex space-x-4">
       <div class="flex-shrink-0">
         <img class="w-10 h-10 rounded-lg" src="{cover}" alt="Post cover" />
       </div>
@@ -106,7 +106,7 @@
         <span class="text-sm font-normal text-gray-400 dark:text-primary-light"> Post </span>
       </div>
     </a>
-    <a href="#" class="flex space-x-4">
+    <a href="#aa" class="flex space-x-4">
       <div class="flex-shrink-0">
         <img class="w-10 h-10 rounded-lg" src="{avatar}" alt="Ahmed Kamel" />
       </div>
@@ -118,7 +118,7 @@
         <span class="text-sm font-normal text-gray-400 dark:text-primary-light"> Offline </span>
       </div>
     </a>
-    <a href="#" class="flex space-x-4">
+    <a href="#aa" class="flex space-x-4">
       <div class="flex-shrink-0">
         <img class="w-10 h-10 rounded-lg" src="{cover2}" alt="K-WD Dashboard" />
       </div>
@@ -131,7 +131,7 @@
       </div>
     </a>
     <template x-for="i in 10" x-key="i">
-      <a href="#" class="flex space-x-4">
+      <a href="#aa" class="flex space-x-4">
         <div class="flex-shrink-0">
           <img class="w-10 h-10 rounded-lg" src="{cover3}" alt="K-WD Dashboard" />
         </div>

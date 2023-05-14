@@ -190,7 +190,7 @@
         <button
           class="relative focus:outline-none"
           on:click="{() => { 
-            isOn = !isOn; updateDoughnutChart(isOn);
+            isOn = !isOn;
           }}"
         >
           <div
@@ -236,7 +236,7 @@
         <button
           class="relative focus:outline-none"
           x-cloak
-          on:click="{() => { isOn = !isOn; updateLineChart() }}"
+          on:click="{() => { isOn = !isOn; }}"
         >
           <div
             class="w-12 h-6 transition rounded-full outline-none bg-primary-100 dark:bg-primary-darker"

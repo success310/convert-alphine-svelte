@@ -95,7 +95,7 @@
           duration: 300,
           easing: quadInOut
         }}">
-          <a href="#" class="block">
+          <a href="#a" class="block">
             <div class="flex px-4 space-x-4">
               <div class="relative flex-shrink-0">
                 <span
@@ -129,7 +129,7 @@
               </div>
             </div>
           </a>
-          <a href="#" class="block">
+          <a href="#a" class="block">
             <div class="flex px-4 space-x-4">
               <div class="relative flex-shrink-0">
                 <span
@@ -164,7 +164,7 @@
             </div>
           </a>
           <template x-for="i in 20" x-key="i">
-            <a href="#" class="block">
+            <a href="#a" class="block">
               <div class="flex px-4 space-x-4">
                 <div class="relative flex-shrink-0">
                   <span
@@ -209,7 +209,7 @@
           duration: 300,
           easing: quadInOut
         }}">
-          <a href="#" class="block">
+          <a href="#a" class="block">
             <div class="flex px-4 space-x-4">
               <div class="relative flex-shrink-0">
                 <span class="relative z-10 inline-block overflow-visible rounded-ful">
@@ -230,7 +230,7 @@
               </div>
             </div>
           </a>
-          <a href="#" class="block">
+          <a href="#a" class="block">
             <div class="flex px-4 space-x-4">
               <div class="relative flex-shrink-0">
                 <span class="relative z-10 inline-block overflow-visible rounded-ful">
@@ -251,7 +251,7 @@
               </div>
             </div>
           </a>
-          <a href="#" class="block">
+          <a href="#a" class="block">
             <div class="flex px-4 space-x-4">
               <div class="relative flex-shrink-0">
                 <span class="relative z-10 inline-block overflow-visible rounded-ful">
@@ -273,7 +273,7 @@
             </div>
           </a>
           <template x-for="i in 10" x-key="i">
-            <a href="#" class="block">
+            <a href="#a" class="block">
               <div class="flex px-4 space-x-4">
                 <div class="relative flex-shrink-0">
                   <span class="relative z-10 inline-block overflow-visible rounded-ful">

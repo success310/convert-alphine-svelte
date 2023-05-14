@@ -51,12 +51,11 @@ const indexTemplate = `<!--
 
     <link rel="shortcut icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon.png" />
-    <link rel="stylesheet" href="/build/bundle.css" />
     <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;700;900&display=swap"
       rel="stylesheet"
-      href="/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css"
     />
-    <link rel="stylesheet" href="/assets/styles/tailwind.css" />
+    <link rel="stylesheet" href="/build/bundle.css" />
     <title>Notus Svelte</title>
 
     <script>
@@ -68,7 +67,7 @@ const indexTemplate = `<!--
     <script defer src="<<live-preview-link>>/build/bundle.js"></script>
   </head>
 
-  <body class="text-blueGray-700 antialiased">
+  <body class="text-blueGray-700 antialiased dark">
     <noscript>
       <strong
         >We're sorry but notus-svelte doesn't work properly without
