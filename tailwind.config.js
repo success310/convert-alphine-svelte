@@ -3,6 +3,7 @@ const colors = require("tailwindcss/colors");
 const defaultTheme = require('tailwindcss/defaultTheme')
 
 module.exports = {
+  mode: "jit",
   purge: {
     enabled: true,
     content: [
@@ -17,6 +18,7 @@ module.exports = {
       safelist: [],
     },
   },
+  darkMode: 'class', // or 'media' or false
   theme: {
     extend: {
       fontFamily: {

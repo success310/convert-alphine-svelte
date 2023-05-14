@@ -56,7 +56,7 @@ const indexTemplate = `<!--
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/build/bundle.css" />
-    <title>Notus Svelte</title>
+    <title>My Svelte Project</title>
 
     <script>
       if (process === undefined) {
