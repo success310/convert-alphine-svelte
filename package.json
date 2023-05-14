@@ -6,7 +6,7 @@
   "repository": "https://github.com/creativetimofficial/notus-svelte",
   "license": "MIT",
   "scripts": {
-    "build": "rollup -c",
+    "build": "tailwind -i public/assets/styles/index.css -o public/build/bundle.css -m && rollup -c",
     "dev": "rollup -c -w",
     "start": "sirv public -s",
     "build:tailwind": "tailwind -i public/assets/styles/index.css -o public/build/bundle.css -m",
