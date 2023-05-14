@@ -4,11 +4,11 @@
     isSettingsPanelOpen,
     isNotificationPanelOpen,
     isSearchPanelOpen,
+    isDark
   } from "../../store/common.js";
   import { toggleDarkMode } from "../../store/common";
 
   let isMobileSubMenuOpen = false;
-  let isDark = true;
   let isOpenUserDropdown = false;
 
   const profileAvatar = "../assets/img/avatar.jpg";
@@ -61,7 +61,7 @@
         aria-hidden="true"
         class="relative focus:outline-none"
         on:click={() => {
-          isDark = !isDark;
+          isDark.set(!$isDark);
           toggleDarkMode();
         }}
       >
@@ -69,11 +69,11 @@
           class="w-12 h-6 transition rounded-full outline-none bg-primary-100 dark:bg-primary-lighter"
         />
         <div
-          class="{isDark
+          class="{$isDark
             ? 'translate-x-6 text-primary-100 bg-primary-darker'
             : 'translate-x-0 -translate-y-px  bg-white text-primary-dark'} absolute top-0 left-0 inline-flex items-center justify-center w-6 h-6 transition-all duration-150 transform scale-110 rounded-full shadow-sm"
         >
-          {#if isDark}
+          {#if $isDark}
             <svg
               class="w-4 h-4"
               xmlns="http://www.w3.org/2000/svg"

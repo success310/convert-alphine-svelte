@@ -5,8 +5,8 @@
     toggleDarkMode,
     toggleTheme,
     isSettingsPanelOpen,
+    isDark
   } from "../../store/common";
-  let isDark = false;
   let isTransitioning = false;
 </script>
 
@@ -98,8 +98,11 @@
         <div class="flex items-center space-x-8">
           <!-- Light button -->
           <button
-            on:click={() => toggleDarkMode(false)}
-            class="{isDark
+          on:click={() => {
+            isDark.set(!$isDark);
+            toggleDarkMode('light');
+          }}
+            class="{$isDark
               ? 'text-gray-500 dark:text-primary-light'
               : 'border-gray-900 text-gray-900 dark:border-primary-light dark:text-primary-100'} flex items-center justify-center px-4 py-2 space-x-4 transition-colors border rounded-md hover:text-gray-900 hover:border-gray-900 dark:border-primary dark:hover:text-primary-100 dark:hover:border-primary-light focus:outline-none focus:ring focus:ring-primary-lighter focus:ring-offset-2 dark:focus:ring-offset-dark dark:focus:ring-primary-dark"
           >
@@ -124,8 +127,11 @@
 
           <!-- Dark button -->
           <button
-            on:click={() => toggleDarkMode(true)}
-            class="{isDark
+          on:click={() => {
+            isDark.set(!$isDark);
+            toggleDarkMode('dark');
+          }}
+            class="{$isDark
               ? 'border-gray-900 text-gray-900 dark:border-primary-light dark:text-primary-100'
               : 'text-gray-500 dark:text-primary-light'} flex items-center justify-center px-4 py-2 space-x-4 transition-colors border rounded-md hover:text-gray-900 hover:border-gray-900 dark:border-primary dark:hover:text-primary-100 dark:hover:border-primary-light focus:outline-none focus:ring focus:ring-primary-lighter focus:ring-offset-2 dark:focus:ring-offset-dark dark:focus:ring-primary-dark"
           >

@@ -44,3 +44,4 @@ import { writable } from'svelte/store';
   export let isSettingsPanelOpen = writable(false);
   export let isNotificationPanelOpen = writable(false);
   export let isSearchPanelOpen = writable(false);
+  export let isDark = writable(true);
