@@ -1,6 +1,5 @@
 <script>
-  import { slide, fade } from "svelte/transition";
-  import { quadInOut } from "svelte/easing";
+  import { fly, fade } from "svelte/transition";
   import {
     isSearchPanelOpen,
   } from "../../store/common";
@@ -17,7 +16,6 @@
     transition:fade={{
       delay: 0,
       duration: 300,
-      easing: quadInOut,
       start: 0,
       end: 1,
     }}
@@ -28,12 +26,10 @@
   >
 </div>
 <section
-  transition:slide={{
+  transition:fly={{
     delay: 0,
     duration: 300,
-    easing: quadInOut,
-    start: 0,
-    end: 1,
+    x: -100,
   }}
   class="{isTransitioning ? 'translate-x-full': 'translate-x-0'} fixed inset-y-0 z-20 w-full max-w-xs bg-white shadow-xl dark:bg-darker dark:text-light sm:max-w-md focus:outline-none"
   tabindex="-1"
