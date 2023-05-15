@@ -1,17 +1,21 @@
 <script>
+   import {
+    isOpenUserDropdown,
+  } from "../../store/common.js";
+  import { clickOutside } from "../Listeners/clickOutSide.js";
   import { slide } from "svelte/transition";
   import { linear } from "svelte/easing";
-  export let isOpenUserDropdown = false;
 </script>
 
+{#if $isOpenUserDropdown}
 <div
   transition:slide={{
     delay: 0,
     duration: 300,
     easing: linear,
   }}
-  on:click.away={() => (isOpenUserDropdown = false)}
-  on:keydown.escape={() => (isOpenUserDropdown = false)}
+  use:clickOutside
+  on:click_outside={() => (isOpenUserDropdown.set(false))}
   class="transform transition-all absolute right-0 w-48 py-1 bg-white rounded-md shadow-lg top-12 ring-1 ring-black ring-opacity-5 dark:bg-dark focus:outline-none"
   tabindex="-1"
   role="menu"
@@ -40,3 +44,4 @@
     Logout
   </a>
 </div>
+{/if}

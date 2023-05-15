@@ -1,18 +1,18 @@
 <script>
-  import { Router, Route } from "svelte-routing";
+  // import { Router, Route } from "svelte-routing";
 
   // components for this layout
-  import Sidebar from "components/Sidebar/Sidebar.svelte";
-  import HeaderAdmin from "components/Headers/HeaderAdmin.svelte";
-  import Content from '../views/admin/Content.svelte';
-  import FooterAdmin from "components/Footers/FooterAdmin.svelte";
+  import Sidebar from "../components/Sidebar/Sidebar.svelte";
+  import HeaderAdmin from "../components/Headers/HeaderAdmin.svelte";
+  import Content from "../views/admin/Content.svelte";
+  import FooterAdmin from "../components/Footers/FooterAdmin.svelte";
 
   // pages for this layout
-  import Dashboard from "views/admin/Dashboard.svelte";
-  import Components from "views/admin/Components.svelte";
-  import Pages from "views/admin/Pages.svelte";
-  import Authentication from "views/admin/Authentication.svelte";
-  import Layouts from "views/admin/Layouts.svelte";
+  // import Dashboard from "views/admin/Dashboard.svelte";
+  // import Components from "views/admin/Components.svelte";
+  // import Pages from "views/admin/Pages.svelte";
+  // import Authentication from "views/admin/Authentication.svelte";
+  // import Layouts from "views/admin/Layouts.svelte";
 
   export let location;
 </script>
@@ -30,7 +30,9 @@
       <!-- Main content -->
       <main>
         <!-- Content header -->
-        <div class="flex items-center justify-between px-4 py-4 border-b lg:py-6 dark:border-primary-darker">
+        <div
+          class="flex items-center justify-between px-4 py-4 border-b lg:py-6 dark:border-primary-darker"
+        >
           <h1 class="text-2xl font-semibold">Dashboard</h1>
           <a
             href="https://github.com/Kamona-WD/kwd-dashboard"
@@ -53,7 +55,7 @@
           </Router>
         </div> -->
       </main>
-      
+
       <!-- Main footer -->
       <FooterAdmin />
     </div>

@@ -1,17 +1,19 @@
 <script>
   import UserDropdown from "../Dropdowns/UserDropdown.svelte";
+  import MobileSubMenuDropdown from "../Dropdowns/MobileSubMenuDropdown.svelte";
   import {
     isSettingsPanelOpen,
     isNotificationPanelOpen,
     isSearchPanelOpen,
-    isDark
+    isDark,
+    isMobileSubMenuOpen,
+    isOpenUserDropdown
   } from "../../store/common.js";
   import { toggleDarkMode } from "../../store/common";
 
-  let isMobileSubMenuOpen = false;
-  let isOpenUserDropdown = false;
-
   const profileAvatar = "../assets/img/avatar.jpg";
+  let isMobileSubMenuOpenValue = $isMobileSubMenuOpen;
+  let isOpenUserDropdownValue = $isOpenUserDropdown;
 </script>
 
 <header class="relative bg-white dark:bg-darker">
@@ -29,7 +31,10 @@
 
     <!-- Mobile sub menu button -->
     <button
-      on:click={() => (isMobileSubMenuOpen = !isMobileSubMenuOpen)}
+      on:click={() => {
+        isMobileSubMenuOpenValue =!isMobileSubMenuOpenValue;
+        isMobileSubMenuOpen.set(!isMobileSubMenuOpenValue);
+      }}
       class="p-1 transition-colors duration-200 rounded-md text-primary-lighter bg-primary-50 hover:text-primary hover:bg-primary-100 dark:hover:text-light dark:hover:bg-primary-dark dark:bg-dark md:hidden focus:outline-none focus:ring"
     >
       <span class="sr-only">Open sub manu</span>
@@ -185,11 +190,12 @@
       <div class="relative">
         <button
           on:click={() => {
-            isOpenUserDropdown = !isOpenUserDropdown;
+            isOpenUserDropdownValue = !isOpenUserDropdownValue;
+            isOpenUserDropdown.set(!isOpenUserDropdownValue);
           }}
           type="button"
           aria-haspopup="true"
-          aria-expanded={isOpenUserDropdown ? "true" : "false"}
+          aria-expanded={$isOpenUserDropdown ? "true" : "false"}
           class="transition-opacity duration-200 rounded-full dark:opacity-75 dark:hover:opacity-100 focus:outline-none focus:ring dark:focus:opacity-100"
         >
           <span class="sr-only">User menu</span>
@@ -201,10 +207,11 @@
         </button>
 
         <!-- User dropdown menu -->
-        {#if isOpenUserDropdown}
-          <UserDropdown {isOpenUserDropdown} />
-        {/if}
+        <UserDropdown {$isOpenUserDropdown} />
       </div>
     </nav>
+
+    <!-- Mobile sub menu -->
+    <MobileSubMenuDropdown />
   </div>
 </header>

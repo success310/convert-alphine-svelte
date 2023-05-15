@@ -40,8 +40,9 @@ import { writable } from'svelte/store';
 
   // states
   export let themeColor = 'blue';
-
-  export let isSettingsPanelOpen = writable(false);
-  export let isNotificationPanelOpen = writable(false);
-  export let isSearchPanelOpen = writable(false);
-  export let isDark = writable(true);
+  export const isSettingsPanelOpen = writable(false);
+  export const isNotificationPanelOpen = writable(false);
+  export const isSearchPanelOpen = writable(false);
+  export const isDark = writable(true);
+  export const isOpenUserDropdown = writable(false);
+  export const isMobileSubMenuOpen = writable(false);
