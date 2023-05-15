@@ -3,20 +3,20 @@
     isOpenUserDropdown,
   } from "../../store/common.js";
   import { clickOutside } from "../Listeners/clickOutSide.js";
-  import { slide } from "svelte/transition";
-  import { linear } from "svelte/easing";
+  import { fly } from "svelte/transition";
 </script>
 
 {#if $isOpenUserDropdown}
 <div
-  transition:slide={{
+  transition:fly={{
     delay: 0,
     duration: 300,
-    easing: linear,
+    opacity: 0,
+    y: 50
   }}
   use:clickOutside
   on:click_outside={() => (isOpenUserDropdown.set(false))}
-  class="transform transition-all absolute right-0 w-48 py-1 bg-white rounded-md shadow-lg top-12 ring-1 ring-black ring-opacity-5 dark:bg-dark focus:outline-none"
+  class="absolute right-0 w-48 py-1 bg-white rounded-md shadow-lg top-12 ring-1 ring-black ring-opacity-5 dark:bg-dark focus:outline-none"
   tabindex="-1"
   role="menu"
   aria-orientation="vertical"
